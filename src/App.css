@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@200;400;500&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif ;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* header starts */
+.page-header {
+    display: "flex";
+    align-items: "center";
+    padding-left: 15%;
+}
+.demo-logo {
+    color: aliceblue;
+    font-size: 20px;
+    
+}
+/* header ends */
+
+/* registration page starts */
+.content-wrapper {
+    padding: 0 15%;
+}
+.breadcrumb-menu {
+    margin: 16px 0;
+}
+.registration-container {
+    padding: 24px ;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 75vh;
+}
+.form-wrapper {
+    position: relative;
+    padding: 20px 0 70px;
+}
+.form-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.horizontal-form-field-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.horizontal-form-field-wrapper>* {
+    flex: 0 1 45%;
+    padding-right: 20px;
+}
+.horizontal-form-field {
+    padding-right: 20px;
+}
+.form-field-wrapper {
+    display: flex;
+    align-items: center;
+}
+.form-field-wrapper>* {
+    flex: 0 1 33%;
+    padding-right: 20px;
+}
+.form-datepicker {
+    width: 100%;
+}
+.next-button-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 32px;
+}
+.next-button {
+    color: #333;
+    font-size: 20px;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #238e92;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.next-button:hover {
+    box-shadow: 0 5px 15px #ccc;
+    background: #238e92 !important;
+}
+.confirm-data-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+.cofirm-data-label, .cofirm-data-value{
+    font-size: 16px;
+}
+.cofirm-data-label {
+    font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* registration page ends */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Footer starts */
+.footer {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif !important;
 }
+/* Footer ends */
 
-.App-link {
-  color: #61dafb;
-}
+/* Responsive */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 500px) {
+    /* header starts */
+    .page-header {
+        padding-left: 5%;
+    }
+    /* header ends */
+
+    /* registration page starts */
+    .content-wrapper {
+        padding: 0 5%;
+    }
+    .form-wrapper {
+        padding: 20px 0;
+    }
+    .horizontal-form-field-wrapper, .form-field-wrapper {
+        flex-direction: column;
+        align-items: unset;
+    }
+    .horizontal-form-field {
+        padding-right: 0;
+    }
+    .next-button-wrapper .ant-space {
+        flex-wrap: wrap;
+    }
+    .next-button-wrapper {
+        position: static;
+        text-align: left;
+        margin-top: 20px;
+    }
+    .next-button {
+        font-size: 17px;
+        height: 40px;
+    }
+    /* registration page ends */
 }
