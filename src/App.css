@@ -8,15 +8,25 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.ant-input, .ant-picker, .ant-select-selector {
+    background: #fbfbfb !important;
+    box-shadow: 0 0 5px #02858a14 !important;
+    border-radius: 0px !important;
+}
+.ant-input:hover, .ant-input:focus, .ant-picker:hover, .ant-picker:focus, .ant-select-selector:hover, .ant-select-selector:focus {
+    border-color: #02858a;
+}
 
 /* header starts */
 .page-header {
-    display: "flex";
-    align-items: "center";
-    padding-left: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15%;
+    background: #02858a;
 }
 .demo-logo {
-    color: aliceblue;
+    color: #fff;
     font-size: 20px;
     
 }
@@ -24,16 +34,40 @@ body {
 
 /* registration page starts */
 .content-wrapper {
-    padding: 0 15%;
+    padding: 0 15% 30px;
+    background-color: #02858a0d;
 }
 .breadcrumb-menu {
     margin: 16px 0;
 }
 .registration-container {
     padding: 24px ;
-    background: #fff;
-    border-radius: 5px;
-    min-height: 75vh;
+    background: #ffffffae;
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px #02858a21;
+    border-radius: 10px;
+    min-height: 73vh;
+}
+.form-tabs .ant-tabs-tab-active, .form-tabs .ant-tabs-tab-active .ant-tabs-tab-btn, .form-tabs .ant-tabs-tab-active .ant-tabs-tab-btn:hover, .form-tabs .ant-tabs-tab-active .ant-tabs-tab-btn:focus {
+    color: #ffffff !important;
+    background: #02858a !important;
+    margin-bottom: -1px !important;
+    font-size: 16px;
+    cursor: default !important;
+    border: none !important;
+}
+.form-tabs .ant-tabs-tab-btn:focus, .form-tabs .ant-tabs-tab-btn:hover,.form-tabs .ant-tabs-tab:hover {
+    color: rgba(0, 0, 0, 0.88) !important;
+}
+.form-tabs .ant-tabs-tab  {
+    font-size: 16px;
+    cursor: default !important;
+    background: rgb(2 133 138 / 10%);
+}
+.form-tabs .ant-tabs-nav {
+    border-bottom: 2px solid #02858a;
 }
 .form-wrapper {
     position: relative;
@@ -102,6 +136,7 @@ body {
 .footer {
     text-align: center;
     font-family: 'Montserrat', sans-serif !important;
+    background: #238e9233;
 }
 /* Footer ends */
 
@@ -110,7 +145,7 @@ body {
 @media (max-width: 500px) {
     /* header starts */
     .page-header {
-        padding-left: 5%;
+        padding: 0 5%;
     }
     /* header ends */
 

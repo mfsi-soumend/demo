@@ -2,18 +2,24 @@ import { Button, Space, notification } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import moment from "moment";
-function ConfirmTab({ patientData, changeTab }) {
+function ConfirmTab({ patientData, selectedHospital, changeTab }) {
   const [active, setActive] = useState(false);
+  const [loading, setLoading] = useState(false);
   const submitForm = async () => {
+    setLoading(true);
+    let payload = Object.assign({}, patientData);
+    payload.hospital = selectedHospital;
     await axios
-      .post("http://localhost:3001/api/patients", patientData)
+      .post("http://localhost:3001/api/patients", payload)
       .then((res) => {
         notification.success({ message: "Patient Data saved successfully" });
         setActive(true);
+        setLoading(false);
       })
       .catch((err) => {
         notification.error({ message: "Error saving patient data" });
         console.log(err);
+        setLoading(false);
       });
   };
   return (
@@ -77,6 +83,7 @@ function ConfirmTab({ patientData, changeTab }) {
           </Button>
           <Button
             type="primary"
+            loading={loading}
             onClick={() => {
               submitForm();
             }}

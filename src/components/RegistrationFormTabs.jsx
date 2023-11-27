@@ -4,7 +4,7 @@ import DemographicForm from "./DemographicForm";
 import ContactForm from "./ContactForm";
 import ConfirmTab from "./ConfirmTab";
 
-function RegistrationFormTabs() {
+function RegistrationFormTabs({ selectedHospital }) {
   const [activeTab, setActiveTab] = useState("demographics");
   const [patientData, setPatientData] = useState({
     givenName: "",
@@ -31,6 +31,7 @@ function RegistrationFormTabs() {
         onTabClick={() => false}
         type="card"
         activeKey={activeTab}
+        className="form-tabs"
         items={[
           {
             label: "Demographics",
@@ -58,7 +59,11 @@ function RegistrationFormTabs() {
             label: "Confirm",
             key: "confirm",
             children: (
-              <ConfirmTab patientData={patientData} changeTab={changeTab} />
+              <ConfirmTab
+                patientData={patientData}
+                selectedHospital={selectedHospital}
+                changeTab={changeTab}
+              />
             ),
           },
         ]}
