@@ -6,21 +6,25 @@ function ConfirmTab({ patientData, selectedHospital, changeTab }) {
   const [active, setActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const submitForm = async () => {
-    setLoading(true);
-    let payload = Object.assign({}, patientData);
-    payload.hospital = selectedHospital;
-    await axios
-      .post("http://localhost:3001/api/patients", payload)
-      .then((res) => {
-        notification.success({ message: "Patient Data saved successfully" });
-        setActive(true);
-        setLoading(false);
-      })
-      .catch((err) => {
-        notification.error({ message: "Error saving patient data" });
-        console.log(err);
-        setLoading(false);
-      });
+    if (!selectedHospital) {
+      notification.error({ message: "Please select a hospital.." });
+    } else {
+      setLoading(true);
+      let payload = Object.assign({}, patientData);
+      payload.hospital = selectedHospital;
+      await axios
+        .post("http://localhost:3001/api/patients", payload)
+        .then((res) => {
+          notification.success({ message: "Patient Data saved successfully" });
+          setActive(true);
+          setLoading(false);
+        })
+        .catch((err) => {
+          notification.error({ message: "Error saving patient data" });
+          console.log(err);
+          setLoading(false);
+        });
+    }
   };
   return (
     <div className="form-wrapper">

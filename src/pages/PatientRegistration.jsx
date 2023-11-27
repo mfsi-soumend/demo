@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Breadcrumb, Layout, Select } from "antd";
 import RegistrationFormTabs from "../components/RegistrationFormTabs";
 const { Header, Content, Footer } = Layout;
 
 function PatientRegistration() {
-  const [selectedHospital, setSelectedHospital] = useState("Carenow Hospital");
+  const [selectedHospital, setSelectedHospital] = useState();
   const onChange = (e) => {
     setSelectedHospital(e);
+    localStorage.setItem("selectedHospital", e);
   };
+  useEffect(() => {
+    if (localStorage.getItem("selectedHospital")) {
+      setSelectedHospital(localStorage.getItem("selectedHospital"));
+    }
+  }, []);
   return (
     <>
       <Layout>
@@ -16,7 +22,7 @@ function PatientRegistration() {
           <Select
             onChange={onChange}
             placeholder="Select a hospital"
-            defaultValue={"Carenow Hospital"}
+            value={selectedHospital}
             options={[
               {
                 value: "Carenow Hospital",
